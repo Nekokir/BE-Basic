@@ -126,7 +126,7 @@ func SubmitUser(db *gorm.DB, token string) (user User, err error)  {
 		return
 	}
 	user.Submitted = true
-	user.Token = ""
+	user.Token = "expired"
 	err = db.Model(&user).Updates(user).Error
 	if err != nil {
 		err = errors.Wrap(err, "SubmitUser")

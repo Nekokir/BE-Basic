@@ -31,7 +31,7 @@ func main() {
 
 	mux.POST("/quiz", SignUp)
 	mux.PUT("/quiz", EditName)
-	mux.PATCH("/quiz", SubmitQuiz)
+	mux.DELETE("/quiz", SubmitQuiz)
 	mux.POST("/question/:qid", AnswerQuestion)
 	mux.PUT("/question/:qid", EditAnswer)
 	mux.GET("/question/:qid", ShowAnswer)
