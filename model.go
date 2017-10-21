@@ -24,7 +24,7 @@ type Answer struct {
 }
 
 func FindUser(db *gorm.DB, token string) (user User, err error) {
-	err = db.Where("token = ?", token).First(&user).Error
+	err = db.Where("token = ?", token).Where("submitted = ?", false).First(&user).Error
 	if err != nil {
 		err = errors.Wrap(err, "FindUser")
 		return
